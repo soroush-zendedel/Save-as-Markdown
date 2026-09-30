@@ -1,0 +1,17 @@
+{
+  "name": "save-as-markdown-firefox-extension",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build:vendor": "node scripts/copy-vendor.mjs",
+    "lint:firefox": "web-ext lint --source-dir ."
+  },
+  "devDependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "turndown": "^7.2.4",
+    "web-ext": "^10.7.0"
+  }
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Site extraction rules</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">SAVE AS MARKDOWN</p>
+        <h1>Site extraction rules</h1>
+        <p class="intro">Use CSS selectors when automatic article detection includes menus, ads, or sidebars. Rules stay on this device.</p>
+      </header>
+      <form id="rulesForm">
+        <label for="hostname">Website domain</label>
+        <input id="hostname" name="hostname" type="text" placeholder="example.com" required autocomplete="off" spellcheck="false">
+        <p class="hint">Enter a hostname only. A rule applies to every page on that domain.</p>
+
+        <label for="includeSelector">Main content selector</label>
+        <textarea id="includeSelector" rows="3" placeholder="article .post-content"></textarea>
+        <p class="hint">The first matching element is used. Leave blank to use automatic content detection.</p>
+
+        <label for="excludeSelectors">Remove from the selected content</label>
+        <textarea id="excludeSelectors" rows="3" placeholder=".author-card, .share-buttons, .related-posts"></textarea>
+        <p class="hint">Separate CSS selectors with commas. Common menus, ads, and related content are removed automatically.</p>
+
+        <div class="actions">
+          <button id="saveRule" type="submit">Save site rule</button>
+          <button id="deleteRule" type="button" class="secondary">Delete rule</button>
+        </div>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+      <aside>
+        <strong>How to find a selector</strong>
+        <p>Right-click the article text in Firefox, choose <em>Inspect</em>, then look for a distinctive class or ID on the content container. Preview the result in the extension before saving.</p>
+      </aside>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

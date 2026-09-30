@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Save as Markdown</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header class="brand">
+        <img class="icon" src="icons/save-markdown.svg" alt="">
+        <div>
+          <h1>Save as Markdown</h1>
+          <p id="pageTitle">Preparing this page…</p>
+        </div>
+      </header>
+      <fieldset class="modes">
+        <legend>Content to save</legend>
+        <label><input type="radio" name="mode" value="main" checked><span><strong>Main article</strong></span></label>
+        <label id="selectionOption"><input type="radio" name="mode" value="selection"><span><strong>Selection</strong><small>Selected text only</small></span></label>
+        <label><input type="radio" name="mode" value="entire"><span><strong>Entire page</strong></span></label>
+      </fieldset>
+      <label id="strategyOption" class="option">
+        <input id="useReaderView" type="checkbox">
+        <span><strong>Use Reader View extraction</strong><small>Off by default: keep the page's printable article structure when it can be identified.</small></span>
+      </label>
+      <label id="extrasOption" class="option">
+        <input id="includeExtras" type="checkbox">
+        <span><strong>Include related page details and media</strong><small>Try to add tags, author, date, description, and article images when available.</small></span>
+      </label>
+      <div class="toolbar">
+        <button id="previewButton" class="secondary" type="button">Preview content</button>
+        <button id="rulesButton" class="text-button" type="button">Site rules</button>
+      </div>
+      <section id="previewSection" hidden>
+        <label class="preview-label" for="markdownPreview">Markdown preview <span>Editable; option changes rebuild it.</span></label>
+        <textarea id="markdownPreview" spellcheck="false" aria-label="Editable Markdown preview"></textarea>
+        <label class="option">
+          <input id="includeSource" type="checkbox" checked>
+          <span><strong>Include source details</strong><small>Add the page URL and save date.</small></span>
+        </label>
+      </section>
+      <button id="saveButton" type="button" disabled>Save Markdown file</button>
+      <p id="status" role="status" aria-live="polite">Choose content, then preview it.</p>
+      <footer>Content is processed locally in your browser.</footer>
+    </main>
+    <script src="vendor/turndown.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
